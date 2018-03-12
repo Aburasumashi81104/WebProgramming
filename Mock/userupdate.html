@@ -8,7 +8,7 @@ h1 {
 }
 </style>
 <meta charset="UTF-8">
-<title>User Detail</title>
+<title>User Update</title>
 <!-- BootstrapのCSS読み込み -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <!-- jQuery読み込み -->
@@ -36,7 +36,7 @@ h1 {
 		</nav>
 	</header>
 
-	<h1>ユーザ情報詳細</h1>
+	<h1>ユーザ情報更新</h1>
 
 	<div class="container">
 		<form class="form-horizontal">
@@ -49,30 +49,41 @@ h1 {
 			</div>
 
 			<div class="form-group row">
+				<label for="inputPassword" class="col-sm-2 col-form-label">パスワード</label>
+				<div class="col-auto">
+					<input type="text" class="form-control" id="username"
+						placeholder="password">
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label for="inputPassword" class="col-sm-2 col-form-label">パスワード（確認）</label>
+				<div class="col-auto">
+					<input type="text" class="form-control" id="username"
+						placeholder="password(confirm)">
+				</div>
+			</div>
+
+			<div class="form-group row">
 				<label for="inputPassword" class="col-sm-2 col-form-label">ユーザ名</label>
 				<div class="col-auto">
-					<p>田中太郎</p>
+					<input type="text" class="form-control" id="username"
+						placeholder="username">
 				</div>
 			</div>
 
 			<div class="form-group row">
 				<label for="inputPassword" class="col-sm-2 col-form-label">生年月日</label>
 				<div class="col-auto">
-					<p>1990年01月01日</p>
+					<input type="text" class="form-control" id="username"
+						placeholder="年/月/日">
 				</div>
 			</div>
 
-			<div class="form-group row">
-				<label for="inputPassword" class="col-sm-2 col-form-label">登録日時</label>
-				<div class="col-auto">
-					<p>2017年01月01日</p>
-				</div>
-			</div>
 
-			<div class="form-group row">
-				<label for="inputPassword" class="col-sm-2 col-form-label">更新日時</label>
-				<div class="col-auto">
-					<p>2017年02月01日</p>
+			<div align="center">
+				<div class="col-xs-offset-2 col-xs-10">
+					<button type="submit" class="btn btn-default">更新</button>
 				</div>
 			</div>
 
