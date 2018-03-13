@@ -1,19 +1,50 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>フォームのサンプル</title>
-</head>
-<body>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ログイン画面</title>
+    <!-- BootstrapのCSS読み込み -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- オリジナルCSS読み込み -->
+    <link href="css/original/common.css" rel="stylesheet">
+    <!-- Jqeryの読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <!-- BootstrapのJS読み込み -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- レイアウトカスタマイズ用個別CSS -->
 
-<form action="/WebDevelopment/formSampleResult.jsp" method="post">
-名前：<input type="text" name="name"><br>
-性別：
-男<input type="radio" name="gender" value="0">
-女<input type="radio" name="gender" value="1">
-<br>
-<input type="submit"value="送信">
+  </head>
+  <body>
 
-</form>
-</body>
+    <!-- header -->
+    <header>
+      <nav class="navbar navbar-inverse">
+      	<div class="container">
+      		<div class="navbar-header">
+            <a class="navbar-brand" href="#">ユーザ管理システム</a>
+      		</div>
+
+      	</div>
+      </nav>
+    </header>
+    <!-- /header -->
+
+    <!-- body -->
+    <div class="container">
+
+      <div class="card card-container">
+        <img id="profile-img" class="profile-img-card" src="./img/dammy_icon.png" />
+        <p id="profile-name" class="profile-name-card"></p>
+        <form class="form-signin" action="LoginServlet" method="post">
+          <span id="reauth-email" class="reauth-email"></span>
+          <input type="text" name="loginId" id="inputLoginId" class="form-control" placeholder="ログインID" required autofocus>
+          <input type="password" name="password" id="inputPassword" class="form-control" placeholder="パスワード" required>
+          <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">ログイン</button>
+        </form><!-- /form -->
+      </div><!-- /card-container -->
+    </div><!-- /container -->
+
+
+  </body>
 </html>
