@@ -19,6 +19,29 @@ h1 {
 </head>
 <body>
 
+<header>
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+			<a class="navbar-brand" href="#">ユーザ管理システム</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#Navbar" aria-controls="Navbar" aria-expanded="false"
+				aria-label="ナビゲーションの切替">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="Navbar">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><a class="nav-link" href="#">USERLIST
+							<span class="sr-only">(現位置)</span>
+					</a></li>
+
+
+				</ul>
+				<span class="navbar-text"> <a href="loginform.html">ログアウト</a>
+				</span>
+			</div>
+		</nav>
+	</header>
+
+
 <form style="margin:60px" >
 	<h1>ユーザー一覧</h1>
 </form>
@@ -51,11 +74,11 @@ h1 {
 					<div class="form-group row">
 						<label for="inputPassword" class="col-sm-4 col-form-label">生年月日</label>
 						<div class="col-auto">
-							<input type="text" class="form-control" placeholder="年/月/日">
+							<input type="date" class="form-control" placeholder="年/月/日">
 
 							<p>～</p>
 
-							<input type="text" class="form-control" placeholder="年/月/日">
+							<input type="date" class="form-control" placeholder="年/月/日">
 
 						</div>
 					</div>
