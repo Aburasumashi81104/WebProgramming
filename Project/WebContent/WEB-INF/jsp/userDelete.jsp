@@ -12,10 +12,9 @@ h1 {
 }
 </style>
 <meta charset="UTF-8">
-<title>User Update</title>
+<title>User Delete</title>
 <!-- BootstrapのCSS読み込み -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/origin/common.css" rel="stylesheet">
 <!-- jQuery読み込み -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -23,6 +22,10 @@ h1 {
 <script src="js/bootstrap.min.js"></script>
 </head>
 <body topmargin="100">
+
+
+
+
 
 	<header>
 		<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
@@ -34,7 +37,7 @@ h1 {
 			</button>
 			<div class="collapse navbar-collapse" id="Navbar">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active"><a class="nav-link" href="#">UPDATE
+					<li class="nav-item active"><a class="nav-link" href="#">DELETE
 							<span class="sr-only">(現位置)</span>
 					</a></li>
 
@@ -48,67 +51,29 @@ h1 {
 		</nav>
 	</header>
 
-
-
-
-
-	<h1>ユーザ情報更新</h1>
+	<h1>ユーザ削除確認</h1>
 
 	<div class="container">
-
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
 				<form class="form-horizontal">
 
-					<div class="form-group row">
-						<label for="inputLoginid" class="col-sm-4 col-form-label">ログインID</label>
-						<div class="col-auto">
-							<p>id0001</p>
-						</div>
-					</div>
+					<p>ログインid:0001</p>
+					<p>を本当に削除してよろしいでしょうか</p>
 
 					<div class="form-group row">
-						<label for="inputPassword" class="col-sm-4 col-form-label">パスワード</label>
-						<div class="col-auto">
-							<input type="password" class="form-control" id="username"
-								placeholder="password">
-						</div>
-					</div>
-
-					<div class="form-group row">
-						<label for="inputPassword" class="col-sm-4 col-form-label">パスワード（確認）</label>
-						<div class="col-auto">
-							<input type="password" class="form-control" id="username"
-								placeholder="password(confirm)">
-						</div>
-					</div>
-
-					<div class="form-group row">
-						<label for="inputUsername" class="col-sm-4 col-form-label">ユーザ名</label>
-						<div class="col-auto">
-							<input type="text" class="form-control" id="username"
-								placeholder="username">
-						</div>
-					</div>
-
-					<div class="form-group row">
-						<label for="inputBirthdate" class="col-sm-4 col-form-label">生年月日</label>
-						<div class="col-auto">
-							<input type="date" class="form-control" id="username"
-								placeholder="年/月/日">
-						</div>
-					</div>
-
-
-					<div align="center">
 						<div class="col-xs-offset-2 col-xs-10">
-							<button type="submit" class="btn btn-default">更新</button>
+							<button type="submit" class="btn btn-default">キャンセル</button>
+						</div>
+						<div class="col-auto">
+							<div class="col-xs-offset-2 col-xs-10">
+								<button type="submit" class="btn btn-default">OK</button>
+							</div>
 						</div>
 					</div>
-
 				</form>
 				<p>
-					<a href="UserListServlet" class="navbar-link logout-link">戻る</a>
+					<a href="UserListServlet" class="navbar-link logout-link">戻る(キャンセルボタンに統合予定)</a>
 				</p>
 			</div>
 		</div>
