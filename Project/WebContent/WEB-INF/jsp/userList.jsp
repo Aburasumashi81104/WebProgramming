@@ -1,0 +1,150 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="css/bootstrap-reboot.min.css">
+<style>
+h1 {
+	text-align: center;
+}
+</style>
+<meta charset="UTF-8">
+<title>User List</title>
+<!-- BootstrapのCSS読み込み -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- jQuery読み込み -->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- BootstrapのJS読み込み -->
+<script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<header>
+		<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+			<a class="navbar-brand" href="#">ユーザ管理システム</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#Navbar" aria-controls="Navbar" aria-expanded="false"
+				aria-label="ナビゲーションの切替">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="Navbar">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><a class="nav-link" href="#">USERLIST
+							<span class="sr-only">(現位置)</span>
+					</a></li>
+
+
+				</ul>
+				<span class="navbar-text"> <a href="loginform.html">ログアウト</a>
+				</span>
+			</div>
+		</nav>
+	</header>
+
+
+<form style="margin:60px" >
+	<h1>ユーザー一覧</h1>
+</form>
+
+	<div class="container">
+
+		<p>
+			<a href="register.html">新規登録</a>
+		</p>
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+				<form class="form-horizontal">
+
+					<div class="form-group row">
+						<label for="inputPassword" class="col-sm-4 col-form-label">ログインID</label>
+						<div class="col-auto">
+							<input type="text" class="form-control" id="inputloginid"
+								placeholder="loginid">
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label for="inputPassword" class="col-sm-4 col-form-label">ユーザ名</label>
+						<div class="col-auto">
+							<input type="text" class="form-control" id="username"
+								placeholder="username">
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label for="inputPassword" class="col-sm-4 col-form-label">生年月日</label>
+						<div class="col-auto">
+							<input type="date" class="form-control" placeholder="年/月/日">
+
+							<p>～</p>
+
+							<input type="date" class="form-control" placeholder="年/月/日">
+
+						</div>
+					</div>
+
+					<div align="center">
+						<div class="col-xs-offset-8 col-auto">
+							<button type="submit" class="btn btn-default">検索</button>
+						</div>
+					</div>
+
+				</form>
+
+				<table class="table table-bordered">
+					<thead class="thead-light">
+						<tr>
+
+							<th scope="col">ログインID</th>
+							<th scope="col">ユーザ名</th>
+							<th scope="col">生年月日</th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">id0001</th>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td><a href="userdetail.html"
+								class="btn btn-primary btn active" role="button"
+								aria-pressed="true">詳細</a> <a href="userupdate.html"
+								class="btn btn-success btn active" role="button"
+								aria-pressed="true">更新</a> <a href="userdelete.html"
+								class="btn btn-danger btn active" role="button"
+								aria-pressed="true">削除</a></td>
+						</tr>
+						<tr>
+							<th scope="row">id0002</th>
+							<td>Jacob</td>
+							<td>Thornton</td>
+							<td><a href="userdetail.html"
+								class="btn btn-primary btn active" role="button"
+								aria-pressed="true">詳細</a> <a href="userupdate.html"
+								class="btn btn-success btn active" role="button"
+								aria-pressed="true">更新</a> <a href="userdelete.html"
+								class="btn btn-danger btn active" role="button"
+								aria-pressed="true">削除</a></td>
+						<tr>
+							<th scope="row">id0003</th>
+							<td>Larry</td>
+							<td>the Bird</td>
+							<td><a href="userdetail.html"
+								class="btn btn-primary btn active" role="button"
+								aria-pressed="true">詳細</a> <a href="userupdate.html"
+								class="btn btn-success btn active" role="button"
+								aria-pressed="true">更新</a> <a href="userdelete.html"
+								class="btn btn-danger btn active" role="button"
+								aria-pressed="true">削除</a></td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
