@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,7 +22,7 @@ h1 {
 </head>
 <body>
 
-<header>
+	<header>
 		<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
 			<a class="navbar-brand" href="#">ユーザ管理システム</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -37,16 +38,16 @@ h1 {
 
 
 				</ul>
-				<span class="navbar-text"> <a href="loginform.html">ログアウト</a>
-				</span>
+				<span>${userInfo.name} さん　　　</span>
+				<a href="LogoutServlet"class="navbar-link logout-link">ログアウト</a>
 			</div>
 		</nav>
 	</header>
 
 
-<form style="margin:60px" >
-	<h1>ユーザー一覧</h1>
-</form>
+	<form style="margin: 60px">
+		<h1>ユーザー一覧</h1>
+	</form>
 
 	<div class="container">
 
@@ -93,54 +94,33 @@ h1 {
 
 				</form>
 
-				<table class="table table-bordered">
-					<thead class="thead-light">
-						<tr>
 
-							<th scope="col">ログインID</th>
-							<th scope="col">ユーザ名</th>
-							<th scope="col">生年月日</th>
-							<th scope="col"></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th scope="row">id0001</th>
-							<td>Mark</td>
-							<td>Otto</td>
-							<td><a href="userdetail.html"
-								class="btn btn-primary btn active" role="button"
-								aria-pressed="true">詳細</a> <a href="userupdate.html"
-								class="btn btn-success btn active" role="button"
-								aria-pressed="true">更新</a> <a href="userdelete.html"
-								class="btn btn-danger btn active" role="button"
-								aria-pressed="true">削除</a></td>
-						</tr>
-						<tr>
-							<th scope="row">id0002</th>
-							<td>Jacob</td>
-							<td>Thornton</td>
-							<td><a href="userdetail.html"
-								class="btn btn-primary btn active" role="button"
-								aria-pressed="true">詳細</a> <a href="userupdate.html"
-								class="btn btn-success btn active" role="button"
-								aria-pressed="true">更新</a> <a href="userdelete.html"
-								class="btn btn-danger btn active" role="button"
-								aria-pressed="true">削除</a></td>
-						<tr>
-							<th scope="row">id0003</th>
-							<td>Larry</td>
-							<td>the Bird</td>
-							<td><a href="userdetail.html"
-								class="btn btn-primary btn active" role="button"
-								aria-pressed="true">詳細</a> <a href="userupdate.html"
-								class="btn btn-success btn active" role="button"
-								aria-pressed="true">更新</a> <a href="userdelete.html"
-								class="btn btn-danger btn active" role="button"
-								aria-pressed="true">削除</a></td>
-						</tr>
-					</tbody>
-				</table>
+				<div class="table-responsive">
+					<table class="table table-boardered">
+						<thead class="thead-light">
+							<tr>
+								<th>ログインID</th>
+								<th>ユーザ名</th>
+								<th>生年月日</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach var="user" items="${userList}">
+								<tr>
+									<td>${user.loginId}</td>
+									<td>${user.name}</td>
+									<td>${user.birthDate}</td>
+									<!-- TODO 未実装；ログインボタンの表示制御を行う -->
+									<td><a class="btn btn-primary"href="UserDetailServlet?id=${user.id}">詳細</a>
+										<a class="btn btn-success" href="UserUpdateServlet?id=${user.id}">更新</a>
+										<a class="btn btn-danger"href="UserDeleteServlet?id=${user.id}">削除</a>
+									</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
+				</div>
 
 			</div>
 		</div>

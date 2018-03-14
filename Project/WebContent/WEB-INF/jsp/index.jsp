@@ -41,7 +41,7 @@ h1 {
 
 						<label for="inputPassword" class="col-sm-4 col-form-label">ログインID</label>
 						<div class="col-auto">
-							<input type="text" class="form-control" id="inputloginid"
+							<input type="text" class="form-control" name="loginId" id="inputloginid"
 								placeholder="loginid">
 						</div>
 
@@ -51,7 +51,7 @@ h1 {
 					<div class="form-group row">
 						<label for="inputPassword" class="col-sm-4 col-form-label">パスワード</label>
 						<div class="col-auto">
-							<input type="password" class="form-control" id="inputPassword"
+							<input type="password" class="form-control" name="password" id="inputPassword"
 								placeholder="Password">
 						</div>
 					</div>
