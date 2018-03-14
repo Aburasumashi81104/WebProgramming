@@ -4,9 +4,9 @@ import java.util.Date;
 
 /**
  * Userテーブルのデータを格納するためのBeans
- * @author takano
  *
  */
+
 public class User {
 	private int id;
 	private String loginId;
@@ -75,9 +75,4 @@ public class User {
 	public void setUpdateDate(String updateDate) {
 		this.updateDate = updateDate;
 	}
-
-
-
-
-
 }

@@ -4,12 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
- * DB接続処理全般
- * @author takano
- */
 public class DBManager {
-    final private static String URL = "jdbc:mysql://localhost/";
+	final private static String URL = "jdbc:mysql://localhost/";
     final private static String DB_NAME = "usermanagement";
     final private static String USER = "root";
     final private static String PASS = "password";
@@ -28,4 +24,3 @@ public class DBManager {
         return con;
     }
 }
-

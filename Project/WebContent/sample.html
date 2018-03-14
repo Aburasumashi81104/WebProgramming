@@ -15,36 +15,84 @@
     <!-- レイアウトカスタマイズ用個別CSS -->
 
   </head>
-  <body>
+<body>
 
-    <!-- header -->
-    <header>
-      <nav class="navbar navbar-inverse">
-      	<div class="container">
-      		<div class="navbar-header">
-            <a class="navbar-brand" href="#">ユーザ管理システム</a>
-      		</div>
+	<!-- header -->
+	<header>
+		<nav class="navbar navbar-inverse">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">ユーザ管理システム</a>
+				</div>
 
-      	</div>
-      </nav>
-    </header>
-    <!-- /header -->
+			</div>
+		</nav>
+	</header>
+	<!-- /header -->
 
-    <!-- body -->
-    <div class="container">
-
-      <div class="card card-container">
-        <img id="profile-img" class="profile-img-card" src="./img/dammy_icon.png" />
-        <p id="profile-name" class="profile-name-card"></p>
-        <form class="form-signin" action="LoginServlet" method="post">
-          <span id="reauth-email" class="reauth-email"></span>
-          <input type="text" name="loginId" id="inputLoginId" class="form-control" placeholder="ログインID" required autofocus>
-          <input type="password" name="password" id="inputPassword" class="form-control" placeholder="パスワード" required>
-          <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">ログイン</button>
-        </form><!-- /form -->
-      </div><!-- /card-container -->
-    </div><!-- /container -->
+	<!-- body -->
+	<div class="container">
 
 
-  </body>
+			<img id="profile-img" class="profile-img-card"
+				src="./img/dammy_icon.png" />
+			<p id="profile-name" class="profile-name-card"></p>
+			<div class="card card-container">
+			<img id="profile-img" class="profile-img-card"
+				src="./img/dammy_icon.png" />
+			<p id="profile-name" class="profile-name-card"></p>
+			<form class="form-signin" action="LoginServlet" method="post">
+				<span id="reauth-email" class="reauth-email"></span> <input
+					type="text" name="loginId" id="inputLoginId" class="form-control"
+					placeholder="ログインID" required autofocus> <input
+					type="password" name="password" id="inputPassword"
+					class="form-control" placeholder="パスワード" required>
+				<button class="btn btn-lg btn-primary btn-block btn-signin"
+					type="submit">ログイン</button>
+			</form>
+			<!-- /form -->
+		</div>
+			<!-- /form -->
+
+
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+				<form class="form-horizontal" action="LoginServlet" method="post">
+
+					<div class="form-group row">
+						<label for="inputPassword" class="col-sm-4 col-form-label">ログインID</label>
+						<div class="col-auto">
+							<input type="text" class="form-control" id="inputloginid"
+								placeholder="loginid">
+						</div>
+					</div>
+
+
+					<div class="form-group row">
+						<label for="inputPassword" class="col-sm-4 col-form-label">パスワード</label>
+						<div class="col-auto">
+							<input type="password" class="form-control" id="inputPassword"
+								placeholder="Password">
+						</div>
+					</div>
+
+					<div align="center">
+						<div class="col-xs-offset-2 col-xs-10">
+							<a href="userlist.html">
+								<button class="btn btn-default btn-signin"
+								type="submit">Enter</button>
+							</a>
+						</div>
+					</div>
+
+				</form>
+			</div>
+		</div>
+
+		<!-- /card-container -->
+	</div>
+	<!-- /container -->
+
+
+</body>
 </html>
