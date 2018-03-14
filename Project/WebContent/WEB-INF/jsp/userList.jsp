@@ -47,13 +47,13 @@ h1 {
 
 
 	<form style="margin: 60px">
-		<h1>ユーザー一覧</h1>
+		<h1>ユーザ 一覧</h1>
 	</form>
 
 	<div class="container">
 
 		<p>
-			<a href="register.html">新規登録</a>
+			<a href="UserRegisterServlet"class="navbar-link logout-link">新規登録</a>
 		</p>
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
