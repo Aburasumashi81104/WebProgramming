@@ -19,7 +19,7 @@ h1 {
 </head>
 <body>
 
-<header>
+	<header>
 		<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
 			<a class="navbar-brand" href="#">ユーザ管理システム</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -35,14 +35,17 @@ h1 {
 
 
 				</ul>
-				<span class="navbar-text"> <a href="loginform.html">ログアウト</a>
-				</span>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="navbar-text">${userInfo.name} さん</li>
+					<li class="dropdown"><a href="LogoutServlet"
+						class="navbar-link logout-link">ログアウト</a></li>
+				</ul>
 			</div>
 		</nav>
 	</header>
 
 
-<form style="margin:60px" >
+	<form style="margin:60px" >
 	<h1>ユーザー一覧</h1>
 </form>
 

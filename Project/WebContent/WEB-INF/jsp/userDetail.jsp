@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +11,7 @@ h1 {
 }
 </style>
 <meta charset="UTF-8">
-<title>User List</title>
+<title>User Detail</title>
 <!-- BootstrapのCSS読み込み -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <!-- jQuery読み込み -->
@@ -20,9 +20,10 @@ h1 {
 <!-- BootstrapのJS読み込み -->
 <script src="js/bootstrap.min.js"></script>
 </head>
-<body>
+<body topmargin="100">
 
-	<header>
+
+<header>
 		<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
 			<a class="navbar-brand" href="#">ユーザ管理システム</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -32,100 +33,73 @@ h1 {
 			</button>
 			<div class="collapse navbar-collapse" id="Navbar">
 				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active"><a class="nav-link" href="#">USERLIST
+					<li class="nav-item active"><a class="nav-link" href="#">DETAIL
 							<span class="sr-only">(現位置)</span>
 					</a></li>
 
 
 				</ul>
-				<span class="navbar-text"></span>
+				<span class="navbar-text">
 				<span>${userInfo.name} さん　　　</span>
 				<a href="LogoutServlet"class="navbar-link logout-link">ログアウト</a>
+				</span>
 			</div>
 		</nav>
 	</header>
 
 
-	<form style="margin: 60px">
-		<h1>ユーザー一覧</h1>
-	</form>
+
+	<h1>ユーザ情報詳細</h1>
 
 	<div class="container">
-
-		<p>
-			<a href="register.html">新規登録</a>
-		</p>
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
+
 				<form class="form-horizontal">
 
 					<div class="form-group row">
 						<label for="inputPassword" class="col-sm-4 col-form-label">ログインID</label>
 						<div class="col-auto">
-							<input type="text" class="form-control" id="inputloginid"
-								placeholder="loginid">
+							<p>${user.loginId}</p>
 						</div>
 					</div>
 
 					<div class="form-group row">
 						<label for="inputPassword" class="col-sm-4 col-form-label">ユーザ名</label>
 						<div class="col-auto">
-							<input type="text" class="form-control" id="username"
-								placeholder="username">
+							<p>田中太郎</p>
 						</div>
 					</div>
 
 					<div class="form-group row">
 						<label for="inputPassword" class="col-sm-4 col-form-label">生年月日</label>
 						<div class="col-auto">
-							<input type="date" class="form-control" placeholder="年/月/日">
-
-							<p>～</p>
-
-							<input type="date" class="form-control" placeholder="年/月/日">
-
+							<p>1990年01月01日</p>
 						</div>
 					</div>
 
-					<div align="center">
-						<div class="col-xs-offset-8 col-auto">
-							<button type="submit" class="btn btn-default">検索</button>
+					<div class="form-group row">
+						<label for="inputPassword" class="col-sm-4 col-form-label">登録日時</label>
+						<div class="col-auto">
+							<p>2017年01月01日</p>
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label for="inputPassword" class="col-sm-4 col-form-label">更新日時</label>
+						<div class="col-auto">
+							<p>2017年02月01日</p>
 						</div>
 					</div>
 
 				</form>
-
-
-				<div class="table-responsive">
-					<table class="table table-boardered">
-						<thead class="thead-light">
-							<tr>
-								<th>ログインID</th>
-								<th>ユーザ名</th>
-								<th>生年月日</th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach var="user" items="${userList}">
-								<tr>
-									<td>${user.loginId}</td>
-									<td>${user.name}</td>
-									<td>${user.birthDate}</td>
-									<!-- TODO 未実装；ログインボタンの表示制御を行う -->
-									<td><a class="btn btn-primary"href="UserDetailServlet?id=${user.id}">詳細</a>
-										<a class="btn btn-success" href="UserUpdateServlet?id=${user.id}">更新</a>
-										<a class="btn btn-danger"href="UserDeleteServlet?id=${user.id}">削除</a>
-									</td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-				</div>
-
+				<p>
+					<a href="UserListServlet"class="navbar-link logout-link">戻る</a>
+				</p>
 			</div>
 		</div>
 	</div>
 
+
+
 </body>
-</html>
