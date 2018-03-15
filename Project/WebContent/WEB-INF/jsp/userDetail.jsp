@@ -67,28 +67,28 @@ h1 {
 					<div class="form-group row">
 						<label for="inputPassword" class="col-sm-4 col-form-label">ユーザ名</label>
 						<div class="col-auto">
-							<p>田中太郎</p>
+							<p>${user.name}</p>
 						</div>
 					</div>
 
 					<div class="form-group row">
 						<label for="inputPassword" class="col-sm-4 col-form-label">生年月日</label>
 						<div class="col-auto">
-							<p>1990年01月01日</p>
+							<p>${user.birthDate}</p>
 						</div>
 					</div>
 
 					<div class="form-group row">
 						<label for="inputPassword" class="col-sm-4 col-form-label">登録日時</label>
 						<div class="col-auto">
-							<p>2017年01月01日</p>
+							<p>${user.createDate}</p>
 						</div>
 					</div>
 
 					<div class="form-group row">
 						<label for="inputPassword" class="col-sm-4 col-form-label">更新日時</label>
 						<div class="col-auto">
-							<p>2017年02月01日</p>
+							<p>${user.updateDate}</p>
 						</div>
 					</div>
 

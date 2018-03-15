@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.UserDao;
+import model.User;
+
 /**
  * Servlet implementation class UserDetailServlet
  */
@@ -28,18 +31,21 @@ public class UserDetailServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		// URLからGETパラメータとしてIDを受け取る
-				String id = request.getParameter("id");
+		String id = request.getParameter("id");
 
-				// 確認用：idをコンソールに出力
-				System.out.println(id);
+		// 確認用：idをコンソールに出力
+		System.out.println(id);
 
+		// TODO  未実装：idを引数にして、idに紐づくユーザ情報を出力する
+		UserDao userDao = new UserDao();
+		User user = userDao.findById(id);
 
-				// TODO  未実装：idを引数にして、idに紐づくユーザ情報を出力する
-
-				// TODO  未実装：ユーザ情報をリクエストスコープにセットしてjspにフォワード
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userDetail.jsp");
-				dispatcher.forward(request, response);
+		// TODO  未実装：ユーザ情報をリクエストスコープにセットしてjspにフォワード
+		request.setAttribute("user", user);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userDetail.jsp");
+		dispatcher.forward(request, response);
 	}
 
 }
