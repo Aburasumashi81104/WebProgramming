@@ -56,7 +56,7 @@ public class UserUpdateServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		String birthdate = request.getParameter("birthDate");
 
-		if (password != passwordc) {
+		if (!password.equals(passwordc)) {
 			// リクエストスコープにエラーメッセージをセット
 			request.setAttribute("errMsg", "異なるパスワードが入力されています。");
 

@@ -59,7 +59,7 @@ h1 {
 
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
-				<form class="form-horizontal">
+				<form class="form-horizontal" action="UserUpdateServlet" method="post">
 
 					<div class="form-group row">
 						<label for="inputPassword" class="col-sm-4 col-form-label">ログインID</label>
