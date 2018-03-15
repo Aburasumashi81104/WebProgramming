@@ -106,8 +106,8 @@ public class UserDao {
         return userList;
     }
 
-    public User findById(String targetId) {
-        Connection conn = null;
+	public User findById(String targetId) {
+		Connection conn = null;
 		try {
 			// データベースへ接続
 			conn = DBManager.getConnection();
@@ -139,16 +139,47 @@ public class UserDao {
 		} finally {
 			// データベース切断
 			if (conn != null) {
-                try {
-                    conn.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					return null;
+				}
+			}
 		}
-    }
+	}
 
+	public void update(String password, String name, String birthdate, String targetId) {
+		Connection conn = null;
+		try {
+			// データベースへ接続
+			conn = DBManager.getConnection();
 
+			// SELECT文を準備
+			String sql = "UPDATE user SET password = ? and name = ? and birth_date = ? WHERE id = ?";
+
+			// SELECTを実行し、データを更新
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, password);
+			pStmt.setString(2, name);
+			pStmt.setString(3, birthdate);
+			pStmt.setString(4, targetId);
+			ResultSet rs = pStmt.executeQuery();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return;
+		} finally {
+			// データベース切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					return;
+				}
+			}
+		}
+	}
 
 }

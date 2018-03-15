@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.UserDao;
+import model.User;
+
 /**
  * Servlet implementation class UserDeleteServlet
  */
@@ -32,8 +35,11 @@ public class UserDeleteServlet extends HttpServlet {
 		// 確認用：idをコンソールに出力
 		System.out.println(id);
 		// TODO  未実装：idを引数にして、idに紐づくユーザ情報を出力する
+		UserDao userDao = new UserDao();
+		User user = userDao.findById(id);
 
 		// TODO  未実装：ユーザ情報をリクエストスコープにセットしてjspにフォワード
+		request.setAttribute("user", user);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userDelete.jsp");
 		dispatcher.forward(request, response);
 	}

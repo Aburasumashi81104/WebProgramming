@@ -51,8 +51,9 @@ h1 {
 
 
 
-
+<form style="margin:90px" >
 	<h1>ユーザ情報更新</h1>
+</form>
 
 	<div class="container">
 
@@ -61,16 +62,16 @@ h1 {
 				<form class="form-horizontal">
 
 					<div class="form-group row">
-						<label for="inputLoginid" class="col-sm-4 col-form-label">ログインID</label>
+						<label for="inputPassword" class="col-sm-4 col-form-label">ログインID</label>
 						<div class="col-auto">
-							<p>id0001</p>
+							<p>${user.loginId}</p>
 						</div>
 					</div>
 
 					<div class="form-group row">
 						<label for="inputPassword" class="col-sm-4 col-form-label">パスワード</label>
 						<div class="col-auto">
-							<input type="password" class="form-control" id="username"
+							<input type="password" class="form-control" name="password" id="username"
 								placeholder="password">
 						</div>
 					</div>
@@ -78,7 +79,7 @@ h1 {
 					<div class="form-group row">
 						<label for="inputPassword" class="col-sm-4 col-form-label">パスワード（確認）</label>
 						<div class="col-auto">
-							<input type="password" class="form-control" id="username"
+							<input type="password" class="form-control" name="passwordC" id="username"
 								placeholder="password(confirm)">
 						</div>
 					</div>
@@ -86,7 +87,7 @@ h1 {
 					<div class="form-group row">
 						<label for="inputUsername" class="col-sm-4 col-form-label">ユーザ名</label>
 						<div class="col-auto">
-							<input type="text" class="form-control" id="username"
+							<input type="text" class="form-control" name="name" id="username"
 								placeholder="username">
 						</div>
 					</div>
@@ -94,7 +95,7 @@ h1 {
 					<div class="form-group row">
 						<label for="inputBirthdate" class="col-sm-4 col-form-label">生年月日</label>
 						<div class="col-auto">
-							<input type="date" class="form-control" id="username"
+							<input type="date" class="form-control" name="birthDate" id="username"
 								placeholder="年/月/日">
 						</div>
 					</div>

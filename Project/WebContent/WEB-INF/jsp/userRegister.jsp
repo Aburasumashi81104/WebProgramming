@@ -49,8 +49,9 @@ h1 {
 
 
 
-
-	<h1>ユーザ新規登録</h1>
+	<form style="margin: 90px">
+		<h1>ユーザ新規登録</h1>
+	</form>
 
 	<div class="container">
 		<div class="row">

@@ -58,9 +58,7 @@ h1 {
 
 					<div align="center">
 						<div class="col-xs-offset-2 col-xs-10">
-							<a href="userlist.html">
 								<button class="btn btn-default" type="submit">Enter</button>
-							</a>
 						</div>
 					</div>
 
