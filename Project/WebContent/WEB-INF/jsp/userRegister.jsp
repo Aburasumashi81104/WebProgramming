@@ -54,6 +54,12 @@ h1 {
 	</form>
 
 	<div class="container">
+
+
+		<c:if test="${errMsg != null}">
+			<div align="center" class="alert alert-danger" role="alert">${errMsg}</div>
+		</c:if>
+
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
 

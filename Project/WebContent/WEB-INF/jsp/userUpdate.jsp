@@ -65,8 +65,7 @@ h1 {
 
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
-				<form class="form-horizontal" action="UserUpdateServlet"
-					method="post">
+				<form class="form-horizontal" action="UserUpdateServlet" method="post">
 
 					<input type="hidden" name="id" value="${user.id}">
 
