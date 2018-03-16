@@ -63,45 +63,45 @@ h1 {
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
 
-				<form class="form-horizontal">
+				<form class="form-horizontal" action="UserRegisterServlet" method="post">
 
 					<div class="form-group row">
 						<label for="inputLoginid" class="col-sm-4 col-form-label">ログインID</label>
 						<div class="col-auto">
-							<input type="text" class="form-control" id="inputloginid"
-								placeholder="loginid">
+							<input type="text" class="form-control" name="loginId"
+							id="loginid" placeholder="loginid">
 						</div>
 					</div>
 
 					<div class="form-group row">
 						<label for="inputPassword" class="col-sm-4 col-form-label">パスワード</label>
 						<div class="col-auto">
-							<input type="password" class="form-control" id="username"
-								placeholder="password">
+							<input type="password" class="form-control" name="password"
+							id="password" placeholder="password">
 						</div>
 					</div>
 
 					<div class="form-group row">
 						<label for="inputPassword" class="col-sm-4 col-form-label">パスワード（確認）</label>
 						<div class="col-auto">
-							<input type="password" class="form-control" id="username"
-								placeholder="password(confirm)">
+							<input type="password" class="form-control" name="passwordC"
+							id="passwordC" placeholder="password(confirm)">
 						</div>
 					</div>
 
 					<div class="form-group row">
 						<label for="inputUsername" class="col-sm-4 col-form-label">ユーザ名</label>
 						<div class="col-auto">
-							<input type="text" class="form-control" id="username"
-								placeholder="username">
+							<input type="text" class="form-control" name="name"
+							id="name" placeholder="username">
 						</div>
 					</div>
 
 					<div class="form-group row">
 						<label for="inputBirthdate" class="col-sm-4 col-form-label">生年月日</label>
 						<div class="col-auto">
-							<input type="date" class="form-control" id="username"
-								placeholder="年/月/日">
+							<input type="date" class="form-control" name="birthDate"
+							id="birthDate" placeholder="年/月/日">
 						</div>
 					</div>
 
