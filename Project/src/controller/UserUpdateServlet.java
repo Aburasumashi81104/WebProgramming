@@ -49,6 +49,9 @@ public class UserUpdateServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		 response.setContentType("text/html; charset=UTF-8");
+
+
 		String id = request.getParameter("id");
 		// リクエストパラメータの入力項目を取得
 		String password = request.getParameter("password");

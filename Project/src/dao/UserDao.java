@@ -156,7 +156,7 @@ public class UserDao {
 			conn = DBManager.getConnection();
 
 			// SELECT文を準備
-			String sql = "UPDATE user SET password = ? and name = ? and birth_date = ? WHERE id = ?";
+			String sql = "UPDATE user SET password = ?, name = ?, birth_date = ? WHERE id = ?";
 
 			// SELECTを実行し、データを更新
 			PreparedStatement pStmt = conn.prepareStatement(sql);
@@ -164,7 +164,8 @@ public class UserDao {
 			pStmt.setString(2, name);
 			pStmt.setString(3, birthdate);
 			pStmt.setString(4, targetId);
-			ResultSet rs = pStmt.executeQuery();
+
+			pStmt.executeUpdate();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
