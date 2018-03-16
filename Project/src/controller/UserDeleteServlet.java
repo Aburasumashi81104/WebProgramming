@@ -34,15 +34,32 @@ public class UserDeleteServlet extends HttpServlet {
 		String id = request.getParameter("id");
 		// 確認用：idをコンソールに出力
 		System.out.println(id);
-		// TODO  未実装：idを引数にして、idに紐づくユーザ情報を出力する
+		//idを引数にして、idに紐づくユーザ情報を出力する
 		UserDao userDao = new UserDao();
 		User user = userDao.findById(id);
 
-		// TODO  未実装：ユーザ情報をリクエストスコープにセットしてjspにフォワード
+		//ユーザ情報をリクエストスコープにセットしてjspにフォワード
 		request.setAttribute("user", user);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userDelete.jsp");
 		dispatcher.forward(request, response);
 	}
+
+
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		  request.setCharacterEncoding("UTF-8");
+
+		String id = request.getParameter("id");
+
+		// リクエストパラメータの入力項目を引数に渡して、Daoのメソッドを実行
+		UserDao userDao = new UserDao();
+		userDao.delete(id);
+
+		// ユーザ一覧のサーブレットにリダイレクト
+		response.sendRedirect("UserListServlet");
+	}
+
 
 
 }

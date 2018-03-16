@@ -56,14 +56,16 @@ h1 {
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
-				<form class="form-horizontal">
-
-					<p>ログインid:0001</p>
-					<p>を本当に削除してよろしいでしょうか</p>
+				<form class="form-horizontal" action="UserDeleteServlet"
+					method="post">
+					<input type="hidden" name="id" value="${user.id}">
+					<p>ID：${user.loginId}</p>
+					<p>${user.name}</p>
+					<p>を本当に削除してよろしいでしょうか？</p>
 
 					<div class="form-group row">
 						<div class="col-xs-offset-2 col-xs-10">
-							<button type="submit" class="btn btn-default">キャンセル</button>
+							<button onclick="history.back()" class="btn btn-default">キャンセル</button>
 						</div>
 						<div class="col-auto">
 							<div class="col-xs-offset-2 col-xs-10">
@@ -72,9 +74,6 @@ h1 {
 						</div>
 					</div>
 				</form>
-				<p>
-					<a href="UserListServlet" class="navbar-link logout-link">戻る(キャンセルボタンに統合予定)</a>
-				</p>
 			</div>
 		</div>
 	</div>

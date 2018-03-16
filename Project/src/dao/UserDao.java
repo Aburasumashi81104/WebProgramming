@@ -69,7 +69,60 @@ public class UserDao {
 
             // SELECT文を準備
             // TODO: 未実装：管理者以外を取得するようSQLを変更する
-            String sql = "SELECT * FROM user";
+            String sql = "SELECT * FROM user not in ('admin')";
+
+             // SELECTを実行し、結果表を取得
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+
+            // 結果表に格納されたレコードの内容を
+            // Userインスタンスに設定し、ArrayListインスタンスに追加
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String loginId = rs.getString("login_id");
+                String name = rs.getString("name");
+                Date birthDate = rs.getDate("birth_date");
+                String password = rs.getString("password");
+                String createDate = rs.getString("create_date");
+                String updateDate = rs.getString("update_date");
+                User user = new User(id, loginId, name, birthDate, password, createDate, updateDate);
+
+                userList.add(user);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            // データベース切断
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }
+        }
+        return userList;
+    }
+
+    public List<User> findSearch(String loginId) {
+        Connection conn = null;
+        List<User> userList = new ArrayList<User>();
+
+        try {
+            // データベースへ接続
+            conn = DBManager.getConnection();
+
+            // SELECT文を準備
+            // TODO: 未実装：管理者以外を取得するようSQLを変更する
+            String sql = "SELECT * FROM user not in ('admin')";
+
+            if(!loginId.equals("")) {
+            	sql += " and login_id = '" + loginId + "'";
+            }
+            
+            
 
              // SELECTを実行し、結果表を取得
             Statement stmt = conn.createStatement();
@@ -217,5 +270,35 @@ public class UserDao {
 		}
 	}
 
+	public void delete(String targetId) {
+		Connection conn = null;
+		try {
+			// データベースへ接続
+			conn = DBManager.getConnection();
+
+			// SELECT文を準備
+			String sql = "DELETE FROM user WHERE id = ?";
+
+			// SELECTを実行し、ユーザを削除
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, targetId);
+
+			pStmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return;
+		} finally {
+			// データベース切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					return;
+				}
+			}
+		}
+	}
 
 }
