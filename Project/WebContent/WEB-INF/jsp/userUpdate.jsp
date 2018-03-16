@@ -57,9 +57,16 @@ h1 {
 
 	<div class="container">
 
+
+		<c:if test="${errMsg != null}">
+			<div align="center" class="alert alert-danger" role="alert">${errMsg}</div>
+		</c:if>
+
+
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
-				<form class="form-horizontal" action="UserUpdateServlet" method="post">
+				<form class="form-horizontal" action="UserUpdateServlet"
+					method="post">
 
 					<input type="hidden" name="id" value="${user.id}">
 
@@ -73,16 +80,16 @@ h1 {
 					<div class="form-group row">
 						<label for="inputPassword" class="col-sm-4 col-form-label">パスワード</label>
 						<div class="col-auto">
-							<input type="password" class="form-control" name="password" id="username"
-								placeholder="password">
+							<input type="password" class="form-control" name="password"
+								id="password" placeholder="password">
 						</div>
 					</div>
 
 					<div class="form-group row">
 						<label for="inputPassword" class="col-sm-4 col-form-label">パスワード（確認）</label>
 						<div class="col-auto">
-							<input type="password" class="form-control" name="passwordC" id="username"
-								placeholder="password(confirm)">
+							<input type="password" class="form-control" name="passwordC"
+								id="passwordc" placeholder="password(confirm)">
 						</div>
 					</div>
 
@@ -97,8 +104,8 @@ h1 {
 					<div class="form-group row">
 						<label for="inputBirthdate" class="col-sm-4 col-form-label">生年月日</label>
 						<div class="col-auto">
-							<input type="date" class="form-control" name="birthDate" id="username"
-								value="${user.birthDate}" placeholder="年/月/日">
+							<input type="date" class="form-control" name="birthDate"
+								id="username" value="${user.birthDate}" placeholder="年/月/日">
 						</div>
 					</div>
 

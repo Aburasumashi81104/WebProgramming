@@ -49,7 +49,8 @@ public class UserUpdateServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		 response.setContentType("text/html; charset=UTF-8");
+		  request.setCharacterEncoding("UTF-8");
+
 
 
 		String id = request.getParameter("id");
@@ -63,9 +64,15 @@ public class UserUpdateServlet extends HttpServlet {
 			// リクエストスコープにエラーメッセージをセット
 			request.setAttribute("errMsg", "異なるパスワードが入力されています。");
 
-			// ログインjspにフォワード
+			UserDao userDao = new UserDao();
+			User user = userDao.findById(id);
+
+			request.setAttribute("user", user);
+
+			// 更新jspにフォワード
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userUpdate.jsp");
 			dispatcher.forward(request, response);
+
 			return;
 		}
 
