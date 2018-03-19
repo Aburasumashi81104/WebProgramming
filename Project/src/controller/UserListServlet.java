@@ -57,13 +57,18 @@ public class UserListServlet extends HttpServlet {
 		String birthdateA = request.getParameter("birthDateA");
 		String birthdateB = request.getParameter("birthDateB");
 
+
 		// ユーザ一覧情報を取得
 		UserDao userDao = new UserDao();
 		List<User> userList = userDao.findSearch(loginId, name, birthdateA, birthdateB);
 
-		// リクエストスコープにユーザ一覧情報をセット
-		request.setAttribute("userList", userList);
 
+		// リクエストスコープに情報をセット
+		request.setAttribute("userList", userList);
+		request.setAttribute("loginId", loginId);
+		request.setAttribute("name", name);
+		request.setAttribute("birthdateA", birthdateA);
+		request.setAttribute("birthdateB", birthdateB);
 		// ユーザ一覧のjspにフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userList.jsp");
 		dispatcher.forward(request, response);

@@ -62,7 +62,8 @@ h1 {
 					<div class="form-group row">
 						<label for="inputPassword" class="col-sm-4 col-form-label">ログインID</label>
 						<div class="col-auto">
-							<input type="text" class="form-control" id="login_id" name="loginId"
+							<input type="text" class="form-control" id="login_id" value="${loginId}"
+							name="loginId"
 								placeholder="loginid">
 						</div>
 					</div>
@@ -70,7 +71,8 @@ h1 {
 					<div class="form-group row">
 						<label for="inputPassword" class="col-sm-4 col-form-label">ユーザ名</label>
 						<div class="col-auto">
-							<input type="text" class="form-control" id="name" name="name"
+							<input type="text" class="form-control" id="name" value="${name}"
+							name="name"
 								placeholder="username">
 						</div>
 					</div>
@@ -78,12 +80,12 @@ h1 {
 					<div class="form-group row">
 						<label for="inputPassword" class="col-sm-4 col-form-label">生年月日</label>
 						<div class="col-auto">
-							<input type="date" class="form-control" id="birthA"
+							<input type="date" class="form-control" id="birthA" value="${birthdateA}"
 							name="birthDateA" placeholder="年/月/日">
 
 							<p>～</p>
 
-							<input type="date" class="form-control" id="birthB"
+							<input type="date" class="form-control" id="birthB" value="${birthdateB}"
 							name="birthDateB" placeholder="年/月/日">
 
 						</div>

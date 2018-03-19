@@ -126,7 +126,7 @@ public class UserDao {
             }
 
             if(!targetName.equals("")) {
-            	sql += " and login_id = '" + targetName + "'";
+            	sql += " and name LIKE '%" + targetName + "%'";
             }
 
             if(!targetDateA.equals("")) {
