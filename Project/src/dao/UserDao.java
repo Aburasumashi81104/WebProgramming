@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.User;
+import util.Util;
 
 public class UserDao {
 
@@ -31,7 +32,7 @@ public class UserDao {
              // SELECTを実行し、結果表を取得
             PreparedStatement pStmt = conn.prepareStatement(sql);
             pStmt.setString(1, loginId);
-            pStmt.setString(2, password);
+            pStmt.setString(2, Util.angou(password));
             ResultSet rs = pStmt.executeQuery();
 
              // 主キーに紐づくレコードは1件のみなので、rs.next()は1回だけ行う
@@ -232,7 +233,7 @@ public class UserDao {
 
 			// SELECTを実行し、データを更新
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setString(1, password);
+			pStmt.setString(1, Util.angou(password));
 			pStmt.setString(2, name);
 			pStmt.setString(3, birthdate);
 			pStmt.setString(4, targetId);
@@ -269,7 +270,7 @@ public class UserDao {
 			pStmt.setString(1, loginId);
 			pStmt.setString(2, name);
 			pStmt.setString(3, birthdate);
-			pStmt.setString(4, password);
+			pStmt.setString(4, Util.angou(password));
 
 			pStmt.executeUpdate();
 

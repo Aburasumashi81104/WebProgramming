@@ -31,7 +31,8 @@ public class UserListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO 未実装：ログインセッションがない場合、ログイン画面にリダイレクトさせる
+		// ログインセッションがない場合、ログイン画面にリダイレクトさせる
+		
 
 		// ユーザ一覧情報を取得
 		UserDao userDao = new UserDao();
@@ -65,6 +66,7 @@ public class UserListServlet extends HttpServlet {
 
 		// リクエストスコープに情報をセット
 		request.setAttribute("userList", userList);
+
 		request.setAttribute("loginId", loginId);
 		request.setAttribute("name", name);
 		request.setAttribute("birthdateA", birthdateA);

@@ -62,6 +62,18 @@ public class UserRegisterServlet extends HttpServlet {
 			return;
 		}
 
+		if (loginId.equals("") || password.equals("") || passwordc.equals("") ||
+				name.equals("") || birthdate.equals("")) {
+			// リクエストスコープにエラーメッセージをセット
+			request.setAttribute("errMsg", "入力された内容は正しくありません");
+
+			// 登録jspにフォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userRegister.jsp");
+			dispatcher.forward(request, response);
+
+			return;
+		}
+
 		UserDao userDao = new UserDao();
 		userDao.register(loginId, password, name, birthdate);
 
