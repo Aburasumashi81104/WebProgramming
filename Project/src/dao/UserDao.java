@@ -68,8 +68,8 @@ public class UserDao {
             conn = DBManager.getConnection();
 
             // SELECT文を準備
-            // TODO: 未実装：管理者以外を取得するようSQLを変更する
-            String sql = "SELECT * FROM user not in ('admin')";
+            // 管理者以外を取得するようSQLを変更する
+            String sql = "SELECT * FROM user WHERE login_id NOT IN ('admin')";
 
              // SELECTを実行し、結果表を取得
             Statement stmt = conn.createStatement();
@@ -106,23 +106,42 @@ public class UserDao {
         return userList;
     }
 
-    public List<User> findSearch(String loginId) {
+    public List<User> findSearch(String targetId,String targetName, String targetDateA, String targetDateB) {
         Connection conn = null;
         List<User> userList = new ArrayList<User>();
+
 
         try {
             // データベースへ接続
             conn = DBManager.getConnection();
 
             // SELECT文を準備
-            // TODO: 未実装：管理者以外を取得するようSQLを変更する
-            String sql = "SELECT * FROM user not in ('admin')";
+            // 管理者以外を取得するようSQLを変更する
+            String sql = "SELECT * FROM user WHERE login_id NOT IN ('admin')";
 
-            if(!loginId.equals("")) {
-            	sql += " and login_id = '" + loginId + "'";
+
+            //値が入っていた場合の処理
+            if(!targetId.equals("")) {
+            	sql += " and login_id = '" + targetId + "'";
             }
-            
-            
+
+            if(!targetName.equals("")) {
+            	sql += " and login_id = '" + targetName + "'";
+            }
+
+            if(!targetDateA.equals("")) {
+            	sql += " and birth_date >= '" + targetDateA + "'";
+            }
+
+            if(!targetDateB.equals("")) {
+
+            	sql += " and birth_date <= '" + targetDateB + "'";
+            }
+
+
+            /*sql += " and birth_date >= TO_DATE('" + targetDateA + "'"+",'YYYY/MM/DD')";*/
+
+
 
              // SELECTを実行し、結果表を取得
             Statement stmt = conn.createStatement();

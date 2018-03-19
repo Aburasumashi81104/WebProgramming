@@ -57,12 +57,12 @@ h1 {
 		</p>
 		<div class="row">
 			<div class="col-md-6 offset-md-3">
-				<form class="form-horizontal">
+				<form class="form-horizontal" action="UserListServlet" method="post">
 
 					<div class="form-group row">
 						<label for="inputPassword" class="col-sm-4 col-form-label">ログインID</label>
 						<div class="col-auto">
-							<input type="text" class="form-control" id="inputloginid"
+							<input type="text" class="form-control" id="login_id" name="loginId"
 								placeholder="loginid">
 						</div>
 					</div>
@@ -70,7 +70,7 @@ h1 {
 					<div class="form-group row">
 						<label for="inputPassword" class="col-sm-4 col-form-label">ユーザ名</label>
 						<div class="col-auto">
-							<input type="text" class="form-control" id="username"
+							<input type="text" class="form-control" id="name" name="name"
 								placeholder="username">
 						</div>
 					</div>
@@ -78,11 +78,13 @@ h1 {
 					<div class="form-group row">
 						<label for="inputPassword" class="col-sm-4 col-form-label">生年月日</label>
 						<div class="col-auto">
-							<input type="date" class="form-control" placeholder="年/月/日">
+							<input type="date" class="form-control" id="birthA"
+							name="birthDateA" placeholder="年/月/日">
 
 							<p>～</p>
 
-							<input type="date" class="form-control" placeholder="年/月/日">
+							<input type="date" class="form-control" id="birthB"
+							name="birthDateB" placeholder="年/月/日">
 
 						</div>
 					</div>

@@ -33,24 +33,41 @@ public class UserListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO 未実装：ログインセッションがない場合、ログイン画面にリダイレクトさせる
 
-				// ユーザ一覧情報を取得
-				UserDao userDao = new UserDao();
-				List<User> userList = userDao.findAll();
+		// ユーザ一覧情報を取得
+		UserDao userDao = new UserDao();
+		List<User> userList = userDao.findAll();
 
-				// リクエストスコープにユーザ一覧情報をセット
-				request.setAttribute("userList", userList);
+		// リクエストスコープにユーザ一覧情報をセット
+		request.setAttribute("userList", userList);
 
-				// ユーザ一覧のjspにフォワード
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userList.jsp");
-				dispatcher.forward(request, response);
+		// ユーザ一覧のjspにフォワード
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userList.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+
+		request.setCharacterEncoding("UTF-8"); //文字化け防止
+
+		String loginId = request.getParameter("loginId");
+		String name = request.getParameter("name");
+		String birthdateA = request.getParameter("birthDateA");
+		String birthdateB = request.getParameter("birthDateB");
+
+		// ユーザ一覧情報を取得
+		UserDao userDao = new UserDao();
+		List<User> userList = userDao.findSearch(loginId, name, birthdateA, birthdateB);
+
+		// リクエストスコープにユーザ一覧情報をセット
+		request.setAttribute("userList", userList);
+
+		// ユーザ一覧のjspにフォワード
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userList.jsp");
+		dispatcher.forward(request, response);
+
 	}
 
 }
