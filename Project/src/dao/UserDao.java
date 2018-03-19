@@ -321,4 +321,44 @@ public class UserDao {
 		}
 	}
 
+	public boolean checkId(String targetId) {
+		Connection conn = null;
+		try {
+			// データベースへ接続
+			conn = DBManager.getConnection();
+
+			// SELECT文を準備
+			String sql = "SELECT * FROM user WHERE login_id = ?";
+
+			// SELECTを実行し、結果表を取得
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, targetId);
+			ResultSet rs = pStmt.executeQuery();
+			// 主キーに紐づくレコードは1件のみなので、rs.next()は1回だけ行う
+			if (!rs.next()) {
+				return null != null;
+			}
+			String loginId = rs.getString("login_id");
+
+			if(loginId != null) {
+				return true;
+			}
+
+			return false;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		} finally {
+			// データベース切断
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					return false;
+				}
+			}
+		}
+	}
+
 }

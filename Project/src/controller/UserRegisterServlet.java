@@ -43,12 +43,28 @@ public class UserRegisterServlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8"); //文字化け防止
 
+		UserDao userDao = new UserDao();
+
 		// リクエストパラメータの入力項目を取得
 		String loginId = request.getParameter("loginId");
 		String password = request.getParameter("password");
 		String passwordc = request.getParameter("passwordC");
 		String name = request.getParameter("name");
 		String birthdate = request.getParameter("birthDate");
+
+		boolean exist = userDao.checkId(loginId);
+
+		if (exist== true) {
+			// リクエストスコープにエラーメッセージをセット
+			request.setAttribute("errMsg", "既存のログインIDは使用出来ません。");
+
+			// 登録jspにフォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userRegister.jsp");
+			dispatcher.forward(request, response);
+
+			return;
+		}
+
 
 
 		if (!password.equals(passwordc)) {
@@ -74,7 +90,6 @@ public class UserRegisterServlet extends HttpServlet {
 			return;
 		}
 
-		UserDao userDao = new UserDao();
 		userDao.register(loginId, password, name, birthdate);
 
 		// ユーザ一覧のサーブレットにリダイレクト

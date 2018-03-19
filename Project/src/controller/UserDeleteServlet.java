@@ -30,10 +30,18 @@ public class UserDeleteServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		String id = request.getParameter("id");
 		// 確認用：idをコンソールに出力
 		System.out.println(id);
+
+		if (id == null) {
+			response.sendRedirect("LoginServlet");
+		}
+
+
 		//idを引数にして、idに紐づくユーザ情報を出力する
 		UserDao userDao = new UserDao();
 		User user = userDao.findById(id);

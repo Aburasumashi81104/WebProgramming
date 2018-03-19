@@ -30,10 +30,16 @@ public class UserDetailServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		// URLからGETパラメータとしてIDを受け取る
 		String id = request.getParameter("id");
+
+		if (id == null) {
+			response.sendRedirect("LoginServlet");
+		}
+
 
 		// 確認用：idをコンソールに出力
 		System.out.println(id);
