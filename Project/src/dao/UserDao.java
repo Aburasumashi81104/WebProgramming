@@ -160,6 +160,8 @@ public class UserDao {
                 String updateDate = rs.getString("update_date");
                 User user = new User(id, loginId, name, birthDate, password, createDate, updateDate);
 
+
+
                 userList.add(user);
             }
         } catch (SQLException e) {

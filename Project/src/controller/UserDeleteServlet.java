@@ -39,10 +39,12 @@ public class UserDeleteServlet extends HttpServlet {
 		System.out.println(id);
 
 		HttpSession session = request.getSession();
-		if(session.getAttribute("LoginInfo") == null) {
+		if(session.getAttribute("userInfo") == null) {
 			response.sendRedirect("LoginServlet");
 			return;
 		}
+
+
 
 		//idを引数にして、idに紐づくユーザ情報を出力する
 		UserDao userDao = new UserDao();

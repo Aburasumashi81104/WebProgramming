@@ -116,7 +116,7 @@ h1 {
 								<tr>
 									<td>${user.loginId}</td>
 									<td>${user.name}</td>
-									<td>${user.birthDate}</td>
+									<td>${user.birthDateFmt}</td>
 									<!-- TODO 未実装；ログインボタンの表示制御を行う -->
 									<td><a class="btn btn-primary"href="UserDetailServlet?id=${user.id}">詳細</a>
 										<c:if test="${userInfo.name=='管理者'}">

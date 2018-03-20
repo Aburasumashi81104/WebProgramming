@@ -1,5 +1,6 @@
 package model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -53,6 +54,11 @@ public class User {
 	}
 	public Date getBirthDate() {
 		return birthDate;
+	}
+
+	public String getBirthDateFmt() {
+		SimpleDateFormat fmt = new SimpleDateFormat("yyyy年MM月dd日");
+		return fmt.format(this.birthDate);
 	}
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
