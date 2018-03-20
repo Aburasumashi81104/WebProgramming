@@ -228,17 +228,19 @@ public class UserDao {
 			// データベースへ接続
 			conn = DBManager.getConnection();
 
-			// SELECT文を準備
+			// SQL文を準備
 			String sql = "UPDATE user SET password = ?, name = ?, birth_date = ? WHERE id = ?";
-
+			String sql2 = "UPDATE user SET update_date = now()";
 			// SELECTを実行し、データを更新
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, Util.angou(password));
 			pStmt.setString(2, name);
 			pStmt.setString(3, birthdate);
 			pStmt.setString(4, targetId);
-
+			PreparedStatement pStmt2 = conn.prepareStatement(sql2);
 			pStmt.executeUpdate();
+			pStmt2.executeUpdate();
+
 
 		} catch (SQLException e) {
 			e.printStackTrace();

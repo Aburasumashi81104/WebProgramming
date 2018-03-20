@@ -39,7 +39,8 @@ h1 {
 
 				</ul>
 				<span class="navbar-text"></span>
-				<span>${userInfo.name} さん　　　</span>
+				<b style="color:#FFFF00">
+				<span>${userInfo.name} さん　　　</span></b>
 				<a href="LogoutServlet"class="navbar-link logout-link">ログアウト</a>
 			</div>
 		</nav>
@@ -118,8 +119,15 @@ h1 {
 									<td>${user.birthDate}</td>
 									<!-- TODO 未実装；ログインボタンの表示制御を行う -->
 									<td><a class="btn btn-primary"href="UserDetailServlet?id=${user.id}">詳細</a>
+										<c:if test="${userInfo.name=='管理者'}">
 										<a class="btn btn-success" href="UserUpdateServlet?id=${user.id}">更新</a>
+										</c:if>
+										<c:if test="${userInfo.name==user.name}">
+										<a class="btn btn-success" href="UserUpdateServlet?id=${user.id}">更新</a>
+										</c:if>
+										<c:if test="${userInfo.name=='管理者'}">
 										<a class="btn btn-danger"href="UserDeleteServlet?id=${user.id}">削除</a>
+										</c:if>
 									</td>
 								</tr>
 							</c:forEach>

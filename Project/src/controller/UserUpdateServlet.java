@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
 import model.User;
@@ -37,8 +38,11 @@ public class UserUpdateServlet extends HttpServlet {
 		// 確認用：idをコンソールに出力
 		System.out.println(id);
 
-		if (id == null) {
+		// ログインセッションがない場合、ログイン画面にリダイレクトさせる
+		HttpSession session = request.getSession();
+		if (session.getAttribute("userInfo") == null) {
 			response.sendRedirect("LoginServlet");
+			return;
 		}
 
 		//idを引数にして、idに紐づくユーザ情報を出力する
@@ -79,6 +83,23 @@ public class UserUpdateServlet extends HttpServlet {
 
 			return;
 		}
+
+		if (name.equals("") || birthdate.equals("")) {
+			// リクエストスコープにエラーメッセージをセット
+			request.setAttribute("errMsg", "未入力の項目があります。");
+
+			UserDao userDao = new UserDao();
+			User user = userDao.findById(id);
+
+			request.setAttribute("user", user);
+
+			// 更新jspにフォワード
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userUpdate.jsp");
+			dispatcher.forward(request, response);
+
+			return;
+		}
+
 
 		// リクエストパラメータの入力項目を引数に渡して、Daoのメソッドを実行
 		UserDao userDao = new UserDao();

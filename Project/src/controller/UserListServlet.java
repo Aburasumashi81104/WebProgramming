@@ -31,11 +31,14 @@ public class UserListServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		// ログインセッションがない場合、ログイン画面にリダイレクトさせる
 		HttpSession session = request.getSession();
-		if(session==null) {
+		if (session.getAttribute("userInfo") == null) {
 			response.sendRedirect("LoginServlet");
+			return;
 		}
 
 		// ユーザ一覧情報を取得
@@ -48,6 +51,7 @@ public class UserListServlet extends HttpServlet {
 		// ユーザ一覧のjspにフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userList.jsp");
 		dispatcher.forward(request, response);
+
 	}
 
 	/**

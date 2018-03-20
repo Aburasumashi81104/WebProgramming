@@ -1,3 +1,4 @@
+
 package controller;
 
 import java.io.IOException;
@@ -8,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
 
@@ -32,6 +34,14 @@ public class UserRegisterServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// フォワード
+
+		HttpSession session = request.getSession();
+		if(session.getAttribute("userInfo") == null) {
+			response.sendRedirect("LoginServlet");
+			return;
+		}
+
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userRegister.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -81,7 +91,7 @@ public class UserRegisterServlet extends HttpServlet {
 		if (loginId.equals("") || password.equals("") || passwordc.equals("") ||
 				name.equals("") || birthdate.equals("")) {
 			// リクエストスコープにエラーメッセージをセット
-			request.setAttribute("errMsg", "入力された内容は正しくありません");
+			request.setAttribute("errMsg", "未入力の項目があります。");
 
 			// 登録jspにフォワード
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userRegister.jsp");

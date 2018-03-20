@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.UserDao;
 import model.User;
@@ -36,19 +37,22 @@ public class UserDetailServlet extends HttpServlet {
 		// URLからGETパラメータとしてIDを受け取る
 		String id = request.getParameter("id");
 
-		if (id == null) {
+		HttpSession session = request.getSession();
+		if(session.getAttribute("userInfo") == null) {
 			response.sendRedirect("LoginServlet");
+			return;
 		}
+
 
 
 		// 確認用：idをコンソールに出力
 		System.out.println(id);
 
-		// TODO  未実装：idを引数にして、idに紐づくユーザ情報を出力する
+		//idを引数にして、idに紐づくユーザ情報を出力する
 		UserDao userDao = new UserDao();
 		User user = userDao.findById(id);
 
-		// TODO  未実装：ユーザ情報をリクエストスコープにセットしてjspにフォワード
+		//ユーザ情報をリクエストスコープにセットしてjspにフォワード
 		request.setAttribute("user", user);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/userDetail.jsp");
 		dispatcher.forward(request, response);
